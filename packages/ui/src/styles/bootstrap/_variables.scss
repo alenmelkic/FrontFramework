@@ -1,0 +1,52 @@
+/**
+ * Bootstrap Variable Overrides
+ * These will be customized by brand themes
+ */
+
+// Typography
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
+  Arial, sans-serif !default;
+$font-size-base: 1rem !default;
+$line-height-base: 1.5 !default;
+
+// Spacing
+$spacer: 1rem !default;
+
+// Grid breakpoints (Bootstrap defaults, can be customized)
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+
+// Container max widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+) !default;
+
+// Enable/disable components
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-reduced-motion: true !default;
+$enable-smooth-scroll: true !default;
+$enable-grid-classes: true !default;
+$enable-container-classes: true !default;
+$enable-cssgrid: false !default;
+$enable-button-pointers: true !default;
+$enable-rfs: true !default;
+$enable-validation-icons: true !default;
+$enable-negative-margins: false !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities: true !default;
+
+// Note: Brand-specific colors will be defined in theme packages
+// packages/themes/energia/ and packages/themes/powerni/

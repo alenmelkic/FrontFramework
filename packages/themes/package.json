@@ -1,0 +1,21 @@
+{
+  "name": "@feframework/themes",
+  "version": "1.0.0",
+  "description": "Brand themes for FEFramework",
+  "type": "module",
+  "files": [
+    "dist",
+    "**/*.scss"
+  ],
+  "exports": {
+    "./_base/*": "./_base/*",
+    "./energia/*": "./energia/*",
+    "./powerni/*": "./powerni/*"
+  },
+  "scripts": {
+    "lint": "echo 'No linting for SCSS files'"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

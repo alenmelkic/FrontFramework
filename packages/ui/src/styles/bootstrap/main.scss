@@ -1,0 +1,17 @@
+/**
+ * Main Bootstrap stylesheet
+ * Import order is important!
+ */
+
+// 1. Import our custom variables (will override Bootstrap defaults)
+@import './variables';
+
+// 2. Import Bootstrap from node_modules
+// Note: In Kentico build, the full Bootstrap will come from the theme
+@import 'bootstrap/scss/bootstrap';
+
+// 3. Import Swiper overrides
+@import './swiper-override';
+
+// Note: Component-specific styles are imported via their individual .scss files
+// This file should NOT contain component styles directly

@@ -1,0 +1,26 @@
+/**
+ * PowerNI Brand Theme Tokens
+ * Brand colors: Blue (#0066b3) as primary
+ */
+
+// Import base tokens
+@use '../_base/tokens' as base;
+
+// PowerNI Brand Colors
+$primary: #0066b3 !default; // PowerNI blue
+$secondary: #004080 !default; // Dark blue
+$accent: #00a9e0 !default; // Light blue accent
+$success: #198754 !default; // Keep Bootstrap success
+$danger: #dc3545 !default; // Keep Bootstrap danger
+$warning: #ffc107 !default; // Keep Bootstrap warning
+$info: #0dcaf0 !default; // Keep Bootstrap info
+$light: #f8f9fa !default;
+$dark: #212529 !default;
+
+// PowerNI-specific shades
+$powerni-blue-light: #4d9fd9;
+$powerni-blue-dark: #003d66;
+$powerni-cyan: #00a9e0;
+
+// Override other tokens as needed
+// (spacing, typography, etc. inherit from base by default)

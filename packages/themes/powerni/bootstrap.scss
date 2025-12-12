@@ -1,0 +1,74 @@
+/**
+ * PowerNI Brand Theme - Bootstrap Integration
+ * Full Bootstrap compilation with PowerNI brand colors
+ */
+
+// 1. Import PowerNI tokens
+@use './tokens' as powerni;
+
+// 2. Override Bootstrap variables with PowerNI colors
+$primary: powerni.$primary;
+$secondary: powerni.$secondary;
+$success: powerni.$success;
+$danger: powerni.$danger;
+$warning: powerni.$warning;
+$info: powerni.$info;
+$light: powerni.$light;
+$dark: powerni.$dark;
+
+// 3. Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// 4. PowerNI-specific customizations
+.btn-primary {
+  background-color: powerni.$primary;
+  border-color: powerni.$primary;
+
+  &:hover {
+    background-color: powerni.$powerni-blue-dark;
+    border-color: powerni.$powerni-blue-dark;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 102, 179, 0.5);
+  }
+}
+
+.btn-accent {
+  background-color: powerni.$accent;
+  border-color: powerni.$accent;
+  color: white;
+
+  &:hover {
+    background-color: darken(powerni.$accent, 10%);
+    border-color: darken(powerni.$accent, 10%);
+  }
+}
+
+// Brand-specific navbar
+.navbar-powerni {
+  background-color: powerni.$primary;
+
+  .navbar-brand,
+  .nav-link {
+    color: white;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+// Brand class for components
+.powerni-primary {
+  color: powerni.$primary;
+}
+
+.bg-powerni-primary {
+  background-color: powerni.$primary;
+  color: white;
+}
+
+.border-powerni-primary {
+  border-color: powerni.$primary !important;
+}

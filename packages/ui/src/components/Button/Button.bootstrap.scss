@@ -1,0 +1,173 @@
+/**
+ * Button Component Styles
+ * Bootstrap-based with brand theming
+ */
+
+// Import Bootstrap button styles
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/spinners';
+
+// Button base - already handled by Bootstrap
+.btn {
+  // Ensure proper focus indicators for accessibility
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  // Loading state
+  &.btn-loading {
+    position: relative;
+    pointer-events: none;
+
+    .btn-spinner {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+// Brand-specific buttons - Energia
+.btn-brand-energia {
+  &.btn-primary {
+    background-color: #00a651;
+    border-color: #00a651;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: #00783c;
+      border-color: #00783c;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.5);
+    }
+
+    &:active:not(:disabled) {
+      background-color: #005826;
+      border-color: #005826;
+    }
+  }
+
+  &.btn-secondary {
+    background-color: #005826;
+    border-color: #005826;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: #003d1c;
+      border-color: #003d1c;
+    }
+  }
+
+  // Outline variants
+  &.btn-outline-primary {
+    color: #00a651;
+    border-color: #00a651;
+
+    &:hover:not(:disabled) {
+      background-color: #00a651;
+      border-color: #00a651;
+      color: white;
+    }
+  }
+}
+
+// Brand-specific buttons - PowerNI
+.btn-brand-powerni {
+  &.btn-primary {
+    background-color: #0066b3;
+    border-color: #0066b3;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: #004080;
+      border-color: #004080;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 0.25rem rgba(0, 102, 179, 0.5);
+    }
+
+    &:active:not(:disabled) {
+      background-color: #003d66;
+      border-color: #003d66;
+    }
+  }
+
+  &.btn-secondary {
+    background-color: #004080;
+    border-color: #004080;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: #003366;
+      border-color: #003366;
+    }
+  }
+
+  // Outline variants
+  &.btn-outline-primary {
+    color: #0066b3;
+    border-color: #0066b3;
+
+    &:hover:not(:disabled) {
+      background-color: #0066b3;
+      border-color: #0066b3;
+      color: white;
+    }
+  }
+}
+
+// Disabled state styling
+.btn:disabled,
+.btn.btn-loading {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+// Spinner positioning
+.btn-spinner {
+  margin-right: 0.5rem;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .spinner-border {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 2px !important;
+
+    &:focus-visible {
+      outline-width: 3px !important;
+    }
+  }
+}
+
+// Minimum touch target size (44x44px for accessibility)
+.btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 1rem;
+
+  &.btn-sm {
+    min-height: 38px;
+    min-width: 38px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  &.btn-lg {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0.75rem 1.5rem;
+  }
+}

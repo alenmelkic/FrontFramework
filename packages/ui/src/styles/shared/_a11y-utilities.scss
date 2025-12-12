@@ -1,0 +1,121 @@
+/**
+ * Accessibility Utility Classes
+ * WCAG 2.1 AA/AAA compliant utilities
+ */
+
+// Screen reader only (visually hidden but available to assistive technology)
+.sr-only,
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
+
+// Screen reader only but focusable when navigated via keyboard
+.sr-only-focusable:not(:focus):not(:focus-within),
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  @extend .sr-only;
+}
+
+// Skip to main content link (for keyboard navigation)
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 100;
+  padding: 8px;
+  background-color: var(--bs-primary, #0d6efd);
+  color: var(--bs-white, #fff);
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Enhanced focus indicators for keyboard navigation
+.focus-visible {
+  outline: 2px solid var(--bs-primary, #0d6efd);
+  outline-offset: 2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .btn,
+  .form-control,
+  .form-select,
+  a {
+    border-width: 2px !important;
+  }
+
+  .btn:focus,
+  .form-control:focus,
+  .form-select:focus,
+  a:focus {
+    outline-width: 3px !important;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Focus-within styles for form groups
+.form-group:focus-within label {
+  color: var(--bs-primary, #0d6efd);
+}
+
+// Ensure sufficient color contrast for text
+.text-on-primary {
+  color: #fff;
+  // Ensure 4.5:1 contrast ratio minimum
+}
+
+.text-on-light {
+  color: #212529;
+  // Ensure 4.5:1 contrast ratio minimum
+}
+
+// Aria-live regions for screen reader announcements
+.sr-announce {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+// Mark required fields clearly
+.required-indicator {
+  color: var(--bs-danger, #dc3545);
+  font-weight: bold;
+  margin-left: 2px;
+
+  &::before {
+    content: '*';
+  }
+}
+
+// Interactive element minimum touch target (44x44px minimum)
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

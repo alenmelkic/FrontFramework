@@ -1,0 +1,74 @@
+/**
+ * Energia Brand Theme - Bootstrap Integration
+ * Full Bootstrap compilation with Energia brand colors
+ */
+
+// 1. Import Energia tokens
+@use './tokens' as energia;
+
+// 2. Override Bootstrap variables with Energia colors
+$primary: energia.$primary;
+$secondary: energia.$secondary;
+$success: energia.$success;
+$danger: energia.$danger;
+$warning: energia.$warning;
+$info: energia.$info;
+$light: energia.$light;
+$dark: energia.$dark;
+
+// 3. Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// 4. Energia-specific customizations
+.btn-primary {
+  background-color: energia.$primary;
+  border-color: energia.$primary;
+
+  &:hover {
+    background-color: energia.$energia-green-dark;
+    border-color: energia.$energia-green-dark;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.5);
+  }
+}
+
+.btn-accent {
+  background-color: energia.$accent;
+  border-color: energia.$accent;
+  color: energia.$dark;
+
+  &:hover {
+    background-color: darken(energia.$accent, 10%);
+    border-color: darken(energia.$accent, 10%);
+  }
+}
+
+// Brand-specific navbar
+.navbar-energia {
+  background-color: energia.$primary;
+
+  .navbar-brand,
+  .nav-link {
+    color: white;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+// Brand class for components
+.energia-primary {
+  color: energia.$primary;
+}
+
+.bg-energia-primary {
+  background-color: energia.$primary;
+  color: white;
+}
+
+.border-energia-primary {
+  border-color: energia.$primary !important;
+}

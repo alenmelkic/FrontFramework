@@ -1,0 +1,26 @@
+/**
+ * Energia Brand Theme Tokens
+ * Brand colors: Green (#00a651) as primary
+ */
+
+// Import base tokens
+@use '../_base/tokens' as base;
+
+// Energia Brand Colors
+$primary: #00a651 !default; // Energia green
+$secondary: #005826 !default; // Dark green
+$accent: #ffd100 !default; // Yellow accent
+$success: #198754 !default; // Keep Bootstrap success
+$danger: #dc3545 !default; // Keep Bootstrap danger
+$warning: #ffc107 !default; // Keep Bootstrap warning
+$info: #0dcaf0 !default; // Keep Bootstrap info
+$light: #f8f9fa !default;
+$dark: #212529 !default;
+
+// Energia-specific shades
+$energia-green-light: #4dc98a;
+$energia-green-dark: #00783c;
+$energia-yellow: #ffd100;
+
+// Override other tokens as needed
+// (spacing, typography, etc. inherit from base by default)

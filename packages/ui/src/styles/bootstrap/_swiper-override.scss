@@ -1,0 +1,47 @@
+/**
+ * Swiper Override Styles
+ * Bootstrap-themed Swiper navigation and pagination
+ */
+
+// Swiper navigation buttons
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--bs-primary, #0d6efd);
+
+  &:after {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  &:hover {
+    color: var(--bs-primary-dark, #0a58ca);
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+// Swiper pagination
+.swiper-pagination-bullet {
+  background: var(--bs-secondary, #6c757d);
+  opacity: 0.5;
+
+  &.swiper-pagination-bullet-active {
+    background: var(--bs-primary, #0d6efd);
+    opacity: 1;
+  }
+}
+
+// Ensure proper focus indicators for accessibility
+.swiper-button-next:focus-visible,
+.swiper-button-prev:focus-visible {
+  outline: 2px solid var(--bs-primary, #0d6efd);
+  outline-offset: 2px;
+}
+
+.swiper-pagination-bullet:focus-visible {
+  outline: 2px solid var(--bs-primary, #0d6efd);
+  outline-offset: 2px;
+}
