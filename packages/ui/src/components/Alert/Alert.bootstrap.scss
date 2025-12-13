@@ -1,0 +1,166 @@
+/**
+ * Alert Component Styles
+ * Bootstrap-based with brand theming
+ */
+
+// Import Bootstrap alert styles
+@import 'bootstrap/scss/alert';
+@import 'bootstrap/scss/close';
+
+// Alert base - already handled by Bootstrap
+.alert {
+  // Ensure proper focus indicators for close button
+  .btn-close {
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+
+  // Alert content layout
+  .alert-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .alert-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .alert-body {
+    flex: 1;
+  }
+
+  .alert-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    color: inherit;
+  }
+
+  .alert-message {
+    margin: 0;
+  }
+}
+
+// Dismissible alert adjustments
+.alert-dismissible {
+  padding-right: 3rem;
+
+  .btn-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+  }
+}
+
+// Brand-specific alerts - Energia
+.alert-brand-energia {
+  &.alert-primary {
+    background-color: #e6f7ed;
+    border-color: #00a651;
+    color: #005826;
+
+    .alert-heading {
+      color: #005826;
+    }
+
+    .btn-close {
+      filter: brightness(0.6);
+    }
+  }
+
+  &.alert-success {
+    background-color: #e6f7ed;
+    border-color: #00a651;
+    color: #005826;
+  }
+}
+
+// Brand-specific alerts - PowerNI
+.alert-brand-powerni {
+  &.alert-primary {
+    background-color: #e6f2fb;
+    border-color: #0066b3;
+    color: #004080;
+
+    .alert-heading {
+      color: #004080;
+    }
+
+    .btn-close {
+      filter: brightness(0.6);
+    }
+  }
+
+  &.alert-info {
+    background-color: #e6f2fb;
+    border-color: #0066b3;
+    color: #004080;
+  }
+}
+
+// Enhanced color contrast for accessibility
+.alert-light {
+  color: #212529;
+  border-color: #dee2e6;
+}
+
+.alert-dark {
+  color: #ffffff;
+  background-color: #212529;
+  border-color: #212529;
+}
+
+// Close button minimum touch target
+.btn-close {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    transition: none;
+  }
+
+  .alert.fade {
+    transition: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .alert {
+    border-width: 2px !important;
+
+    .btn-close:focus-visible {
+      outline-width: 3px !important;
+    }
+  }
+
+  .alert-heading {
+    font-weight: 700;
+  }
+}
+
+// Ensure minimum padding for touch targets
+.alert {
+  padding: 1rem 1.25rem;
+}
+
+// Alert with icon layout
+.alert-content {
+  .alert-icon + .alert-body {
+    // Ensure proper spacing when icon is present
+    .alert-heading:first-child {
+      margin-top: -0.125rem; // Align with icon
+    }
+  }
+}

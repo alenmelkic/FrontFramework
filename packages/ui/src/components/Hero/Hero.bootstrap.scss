@@ -1,0 +1,259 @@
+/**
+ * Hero Component Styles
+ * Bootstrap-based with brand theming
+ */
+
+// Import Bootstrap utilities
+@import 'bootstrap/scss/buttons';
+
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Height variants
+.hero-small {
+  min-height: 300px;
+}
+
+.hero-medium {
+  min-height: 500px;
+}
+
+.hero-large {
+  min-height: 700px;
+}
+
+.hero-full {
+  min-height: 100vh;
+}
+
+// Background overlay
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+// Content container
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+// Alignment variants
+.hero-align-start .hero-content {
+  text-align: left;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.hero-align-center .hero-content {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-align-end .hero-content {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+// Title
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+// Subtitle
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+// Actions
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .hero-align-start & {
+    justify-content: flex-start;
+  }
+
+  .hero-align-center & {
+    justify-content: center;
+  }
+
+  .hero-align-end & {
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: stretch;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
+// Text color variants
+.hero-text-light {
+  color: #ffffff;
+
+  .hero-title,
+  .hero-subtitle {
+    color: #ffffff;
+  }
+}
+
+.hero-text-dark {
+  color: #212529;
+
+  .hero-title,
+  .hero-subtitle {
+    color: #212529;
+  }
+}
+
+// Brand-specific heroes - Energia
+.hero-brand-energia {
+  &:not(.hero-with-background) {
+    background: linear-gradient(135deg, #00a651 0%, #005826 100%);
+    color: #ffffff;
+
+    .hero-title,
+    .hero-subtitle {
+      color: #ffffff;
+    }
+  }
+
+  .btn-primary {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #00a651;
+
+    &:hover {
+      background-color: #f8f9fa;
+      border-color: #f8f9fa;
+    }
+  }
+
+  .btn-outline-primary {
+    color: #ffffff;
+    border-color: #ffffff;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #00a651;
+    }
+  }
+}
+
+// Brand-specific heroes - PowerNI
+.hero-brand-powerni {
+  &:not(.hero-with-background) {
+    background: linear-gradient(135deg, #0066b3 0%, #004080 100%);
+    color: #ffffff;
+
+    .hero-title,
+    .hero-subtitle {
+      color: #ffffff;
+    }
+  }
+
+  .btn-primary {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #0066b3;
+
+    &:hover {
+      background-color: #f8f9fa;
+      border-color: #f8f9fa;
+    }
+  }
+
+  .btn-outline-primary {
+    color: #ffffff;
+    border-color: #ffffff;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #0066b3;
+    }
+  }
+}
+
+// Ensure good contrast on overlay
+.hero-with-background .hero-content {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// Button focus indicators
+.hero .btn {
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    * {
+      transition: none !important;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .hero-title {
+    font-weight: 900;
+  }
+
+  .hero .btn:focus-visible {
+    outline-width: 3px !important;
+  }
+}
+
+// Responsive padding
+@media (min-width: 768px) {
+  .hero-content {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-content {
+    padding: 4rem 2rem;
+  }
+}

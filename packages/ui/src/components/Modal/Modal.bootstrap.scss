@@ -1,0 +1,240 @@
+/**
+ * Modal Component Styles
+ * Bootstrap-based with brand theming
+ */
+
+@import 'bootstrap/scss/modal';
+@import 'bootstrap/scss/close';
+
+// Modal overlay
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1055;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+
+  &.show {
+    display: block !important;
+  }
+}
+
+// Backdrop
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+
+  &.fade {
+    opacity: 0;
+  }
+
+  &.show {
+    opacity: 0.5;
+  }
+}
+
+// Dialog container
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 1.75rem auto;
+  max-width: 500px;
+  pointer-events: none;
+
+  .modal-content {
+    pointer-events: auto;
+  }
+}
+
+// Size variants
+.modal-sm {
+  max-width: 300px;
+}
+
+.modal-md {
+  max-width: 500px;
+}
+
+.modal-lg {
+  max-width: 800px;
+}
+
+.modal-xl {
+  max-width: 1140px;
+}
+
+// Modal content
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  outline: 0;
+}
+
+// Modal header
+.modal-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #212529;
+}
+
+// Close button
+.btn-close {
+  padding: 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+  background: transparent
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e")
+    center/1em auto no-repeat;
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0.5;
+  width: 1em;
+  height: 1em;
+  min-width: 44px;
+  min-height: 44px;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus {
+    opacity: 1;
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+// Modal body
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+// Brand-specific modals - Energia
+.modal-brand-energia {
+  .modal-header {
+    background-color: #e6f7ed;
+    border-bottom-color: #00a651;
+
+    .modal-title {
+      color: #005826;
+    }
+  }
+
+  .btn-close:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.25);
+  }
+}
+
+// Brand-specific modals - PowerNI
+.modal-brand-powerni {
+  .modal-header {
+    background-color: #e6f2fb;
+    border-bottom-color: #0066b3;
+
+    .modal-title {
+      color: #004080;
+    }
+  }
+
+  .btn-close:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 102, 179, 0.25);
+  }
+}
+
+// Responsive
+@media (min-width: 576px) {
+  .modal-dialog {
+    margin: 1.75rem auto;
+  }
+
+  .modal-sm {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-xl {
+    max-width: 1140px;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .modal {
+    transition: none;
+  }
+
+  .modal-backdrop {
+    transition: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .modal-content {
+    border-width: 2px !important;
+  }
+
+  .modal-header {
+    border-bottom-width: 2px !important;
+  }
+
+  .modal-title {
+    font-weight: 700;
+  }
+
+  .btn-close:focus-visible {
+    outline-width: 3px !important;
+  }
+}
+
+// Ensure modal is above other content
+.modal {
+  z-index: 1055;
+}
+
+.modal-backdrop {
+  z-index: 1050;
+}

@@ -1,0 +1,178 @@
+/**
+ * Card Component Styles
+ * Bootstrap-based with brand theming
+ */
+
+// Import Bootstrap card styles
+@import 'bootstrap/scss/card';
+
+// Card base - already handled by Bootstrap
+.card {
+  // Image aspect ratio consistency
+  .card-img-top,
+  .card-img-bottom {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-img-top {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+// Clickable card
+.card-clickable {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+// Card header
+.card-header {
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+// Card body
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+// Card footer
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+// Brand-specific cards - Energia
+.card-brand-energia {
+  border-color: #00a651;
+
+  .card-header {
+    background-color: #e6f7ed;
+    border-bottom-color: #00a651;
+    color: #005826;
+  }
+
+  .card-footer {
+    background-color: #e6f7ed;
+    border-top-color: #00a651;
+  }
+
+  &.card-clickable:hover {
+    border-color: #00a651;
+    box-shadow: 0 4px 12px rgba(0, 166, 81, 0.2);
+  }
+
+  &.card-clickable:focus-visible {
+    outline-color: #00a651;
+  }
+}
+
+// Brand-specific cards - PowerNI
+.card-brand-powerni {
+  border-color: #0066b3;
+
+  .card-header {
+    background-color: #e6f2fb;
+    border-bottom-color: #0066b3;
+    color: #004080;
+  }
+
+  .card-footer {
+    background-color: #e6f2fb;
+    border-top-color: #0066b3;
+  }
+
+  &.card-clickable:hover {
+    border-color: #0066b3;
+    box-shadow: 0 4px 12px rgba(0, 102, 179, 0.2);
+  }
+
+  &.card-clickable:focus-visible {
+    outline-color: #0066b3;
+  }
+}
+
+// Text alignment utilities
+.card.text-start {
+  .card-header,
+  .card-body,
+  .card-footer {
+    text-align: left;
+  }
+}
+
+.card.text-center {
+  .card-header,
+  .card-body,
+  .card-footer {
+    text-align: center;
+  }
+}
+
+.card.text-end {
+  .card-header,
+  .card-body,
+  .card-footer {
+    text-align: right;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .card-clickable {
+    transition: none;
+
+    &:hover,
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .card {
+    border-width: 2px !important;
+  }
+
+  .card-clickable:focus-visible {
+    outline-width: 3px !important;
+  }
+
+  .card-header,
+  .card-footer {
+    font-weight: 700;
+  }
+}
+
+// Ensure images are accessible
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Loading state for lazy-loaded images
+.card img[loading='lazy'] {
+  background-color: #f8f9fa;
+}

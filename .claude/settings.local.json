@@ -10,7 +10,13 @@
       "Bash(npm install:*)",
       "Bash(npm view:*)",
       "Bash(findstr:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(xargs:*)",
+      "Bash(done)",
+      "Bash(npm test:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx storybook@latest init:*)",
+      "Bash(npm init:*)"
     ]
   }
 }

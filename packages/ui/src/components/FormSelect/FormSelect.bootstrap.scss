@@ -1,0 +1,135 @@
+/**
+ * FormSelect Component Styles
+ * Bootstrap-based with brand theming
+ */
+
+// Import Bootstrap form styles
+@import 'bootstrap/scss/forms';
+
+.form-select-container {
+  margin-bottom: 1rem;
+}
+
+// Form select base - already handled by Bootstrap
+.form-select {
+  // Ensure proper focus indicators for accessibility
+  &:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+
+  // Enhanced focus indicator for keyboard navigation
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  // Error state
+  &.is-invalid {
+    border-color: #dc3545;
+
+    &:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+    }
+  }
+}
+
+// Form label
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #212529;
+
+  // Required indicator
+  .text-danger {
+    font-weight: bold;
+  }
+}
+
+// Helper text
+.form-text {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+// Invalid feedback
+.invalid-feedback {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #dc3545;
+}
+
+// Brand-specific selects - Energia
+.form-select-brand-energia {
+  &:focus {
+    border-color: #00a651;
+    box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.25);
+  }
+}
+
+// Brand-specific selects - PowerNI
+.form-select-brand-powerni {
+  &:focus {
+    border-color: #0066b3;
+    box-shadow: 0 0 0 0.25rem rgba(0, 102, 179, 0.25);
+  }
+}
+
+// Size variants
+.form-select-sm {
+  min-height: 38px;
+  padding: 0.25rem 2.25rem 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-select-lg {
+  min-height: 48px;
+  padding: 0.75rem 3rem 0.75rem 1rem;
+  font-size: 1.25rem;
+}
+
+// Disabled state
+.form-select:disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+// Placeholder option styling
+.form-select option:disabled {
+  color: #6c757d;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .form-select {
+    transition: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .form-select {
+    border-width: 2px !important;
+
+    &:focus,
+    &:focus-visible {
+      outline-width: 3px !important;
+      border-width: 2px !important;
+    }
+  }
+
+  .form-label {
+    font-weight: 700;
+  }
+}
+
+// Minimum touch target size for accessibility
+.form-select {
+  min-height: 44px;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+}
