@@ -1,0 +1,127 @@
+/**
+ * FEFramework Documentation Custom Styles
+ * Energia green as primary brand color
+ */
+
+:root {
+  /* Energia green colors */
+  --ifm-color-primary: #00a651;
+  --ifm-color-primary-dark: #009549;
+  --ifm-color-primary-darker: #008d45;
+  --ifm-color-primary-darkest: #007438;
+  --ifm-color-primary-light: #00b759;
+  --ifm-color-primary-lighter: #00bf5d;
+  --ifm-color-primary-lightest: #00d86a;
+
+  /* Secondary - dark green */
+  --ifm-color-secondary: #005826;
+  --ifm-color-secondary-dark: #004f22;
+  --ifm-color-secondary-darker: #004a20;
+  --ifm-color-secondary-darkest: #003d1a;
+  --ifm-color-secondary-light: #00612a;
+  --ifm-color-secondary-lighter: #00662c;
+  --ifm-color-secondary-lightest: #007532;
+
+  /* Code block background */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 166, 81, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #00d86a;
+  --ifm-color-primary-dark: #00c25f;
+  --ifm-color-primary-darker: #00b759;
+  --ifm-color-primary-darkest: #009649;
+  --ifm-color-primary-light: #1adc76;
+  --ifm-color-primary-lighter: #26de7c;
+  --ifm-color-primary-lightest: #4de48d;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 166, 81, 0.3);
+}
+
+/* Custom styles for component documentation */
+.component-preview {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.component-preview--energia {
+  border-color: var(--ifm-color-primary);
+}
+
+.component-preview--powerni {
+  border-color: #0066b3;
+}
+
+/* Props table styling */
+.props-table {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.props-table th {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+.props-table td code {
+  background-color: var(--ifm-code-background);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* Brand badges */
+.brand-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+.brand-badge--energia {
+  background-color: #00a651;
+  color: white;
+}
+
+.brand-badge--powerni {
+  background-color: #0066b3;
+  color: white;
+}
+
+/* Accessibility indicator */
+.a11y-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: var(--ifm-color-success);
+  color: white;
+  margin-left: 8px;
+}
+
+/* Code block enhancements */
+.theme-code-block {
+  margin-bottom: 1.5rem;
+}
+
+/* Callouts */
+.callout {
+  padding: 1rem;
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+.callout--warning {
+  border-left-color: var(--ifm-color-warning);
+}
+
+.callout--danger {
+  border-left-color: var(--ifm-color-danger);
+}

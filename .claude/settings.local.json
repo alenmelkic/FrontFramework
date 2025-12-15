@@ -16,7 +16,22 @@
       "Bash(npm test:*)",
       "Bash(npm run build:*)",
       "Bash(npx storybook@latest init:*)",
-      "Bash(npm init:*)"
+      "Bash(npm init:*)",
+      "Bash(npx create-docusaurus@latest . classic --typescript --skip-install)",
+      "Bash(timeout 60 npm run build)",
+      "Bash(npm run storybook:*)",
+      "Bash(node -c:*)",
+      "Bash(timeout 30 npm run storybook:*)",
+      "Bash(netstat:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd //c \"taskkill /PID 41860 /F\")",
+      "Bash(timeout 60 npm run storybook:*)",
+      "Bash(npm create:*)",
+      "Bash(npm run build:kentico:energia:*)",
+      "Bash(npx tsx:*)",
+      "Bash(set:*)",
+      "Bash(set KENTICO_OUTPUT_PATH=../../dist/kentico:*)",
+      "Bash(npm run build:kentico:*)"
     ]
   }
 }

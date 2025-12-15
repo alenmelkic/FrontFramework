@@ -57,13 +57,11 @@ export default defineConfig({
   build: {
     outDir: kenticoOutputPath,
     emptyOutDir: true,
-    lib: {
-      entry: entries,
-      formats: ['iife'],
-      name: 'FEFramework',
-    },
     rollupOptions: {
+      input: entries,
       output: {
+        format: 'iife',
+        name: 'FEFramework',
         entryFileNames: '[name].min.js',
         chunkFileNames: 'chunks/[name]-[hash].js',
         assetFileNames: assetInfo => {
@@ -80,7 +78,14 @@ export default defineConfig({
           }
           return 'assets/[name][extname]';
         },
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime',
+        },
+        inlineDynamicImports: false, // Required for multiple entries
       },
+      external: [], // Don't externalize anything - bundle everything
     },
     sourcemap: false, // Disable source maps for production Kentico bundles
     minify: 'terser',
@@ -95,6 +100,11 @@ export default defineConfig({
       scss: {
         // Import brand theme based on environment variable
         additionalData: `@import "@feframework/themes/${brand}/bootstrap.scss";`,
+        includePaths: [
+          path.resolve(__dirname, '../../node_modules'),
+          path.resolve(__dirname, '../themes'),
+          path.resolve(__dirname, './src'),
+        ],
       },
     },
   },

@@ -1,0 +1,53 @@
+// Global Styles for FEFramework Frontend
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+// Brand-specific primary colors
+.brand-energia {
+  --brand-primary: #00a651;
+  --brand-primary-hover: #008a44;
+  --brand-primary-light: #e6f7ef;
+}
+
+.brand-powerni {
+  --brand-primary: #0066b3;
+  --brand-primary-hover: #005091;
+  --brand-primary-light: #e6f2f9;
+}
+
+// Utility classes
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #666;
+}
+
+// Smooth transitions
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+a {
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+button {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}

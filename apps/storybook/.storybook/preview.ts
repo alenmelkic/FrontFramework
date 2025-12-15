@@ -1,6 +1,4 @@
 import type { Preview } from '@storybook/react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../packages/ui/src/styles/bootstrap/main.scss';
 import { BrandDecorator } from './decorators/BrandDecorator';
 
 const preview: Preview = {

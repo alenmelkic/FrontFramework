@@ -3,7 +3,7 @@ import path from 'path';
 
 const config: StorybookConfig = {
   stories: [
-    '../../packages/ui/src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../../../packages/ui/src/**/*.stories.tsx',
   ],
   addons: [
     '@storybook/addon-links',
@@ -26,7 +26,26 @@ const config: StorybookConfig = {
         alias: {
           ...config.resolve?.alias,
           '@feframework/ui': path.resolve(__dirname, '../../packages/ui/src'),
+          '@tests': path.resolve(__dirname, '../../tests'),
         },
+      },
+      css: {
+        preprocessorOptions: {
+          scss: {
+            includePaths: [
+              path.resolve(__dirname, '../../node_modules'),
+              path.resolve(__dirname, '../../packages/ui/src'),
+            ],
+            additionalData: `
+              @import "bootstrap/scss/functions";
+              @import "bootstrap/scss/variables";
+              @import "bootstrap/scss/mixins";
+            `,
+          },
+        },
+      },
+      optimizeDeps: {
+        include: ['react', 'react-dom', 'bootstrap', '@popperjs/core', '@storybook/test'],
       },
     };
   },

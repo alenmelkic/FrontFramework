@@ -1,0 +1,183 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-size: 1.25rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .brand-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      color: white;
+    }
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+
+    .nav-link {
+      text-decoration: none;
+      color: #666;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #000;
+      }
+
+      &.active {
+        color: #000;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -1rem;
+          left: 0;
+          right: 0;
+          height: 3px;
+          border-radius: 3px 3px 0 0;
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid #0066b3;
+        outline-offset: 2px;
+        border-radius: 0.25rem;
+      }
+    }
+  }
+
+  &-main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+
+  &-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    padding: 2rem 0;
+    margin-top: auto;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-text {
+      margin: 0;
+      color: #666;
+      font-size: 0.875rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+
+      a {
+        color: #666;
+        text-decoration: none;
+        font-size: 0.875rem;
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+// Brand-specific styles
+.brand-energia {
+  .brand-logo .brand-icon {
+    background: #00a651;
+  }
+
+  .main-nav .nav-link.active::after {
+    background: #00a651;
+  }
+}
+
+.brand-powerni {
+  .brand-logo .brand-icon {
+    background: #0066b3;
+  }
+
+  .main-nav .nav-link.active::after {
+    background: #0066b3;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .layout {
+    &-header .header-content {
+      flex-wrap: wrap;
+    }
+
+    .main-nav {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      padding-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    &-footer .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
