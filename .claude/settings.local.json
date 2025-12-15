@@ -31,7 +31,12 @@
       "Bash(npx tsx:*)",
       "Bash(set:*)",
       "Bash(set KENTICO_OUTPUT_PATH=../../dist/kentico:*)",
-      "Bash(npm run build:kentico:*)"
+      "Bash(npm run build:kentico:*)",
+      "Bash(dir:*)",
+      "Bash(node -e:*)",
+      "Bash(node run-reorganize.js:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)"
     ]
   }
 }

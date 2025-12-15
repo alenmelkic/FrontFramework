@@ -60,8 +60,7 @@ export default defineConfig({
     rollupOptions: {
       input: entries,
       output: {
-        format: 'iife',
-        name: 'FEFramework',
+        format: 'es',
         entryFileNames: '[name].min.js',
         chunkFileNames: 'chunks/[name]-[hash].js',
         assetFileNames: assetInfo => {
@@ -78,12 +77,6 @@ export default defineConfig({
           }
           return 'assets/[name][extname]';
         },
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'jsxRuntime',
-        },
-        inlineDynamicImports: false, // Required for multiple entries
       },
       external: [], // Don't externalize anything - bundle everything
     },

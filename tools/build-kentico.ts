@@ -7,6 +7,7 @@ import { build } from 'vite';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { reorganizeKenticoOutput } from './reorganize-kentico-output.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -81,6 +82,9 @@ async function buildKentico() {
 
     console.log('\n✅ Vite build complete!');
 
+    // Reorganize files into component folders (move CSS, create HTML templates)
+    reorganizeKenticoOutput(kenticoOutputPath);
+
     // Generate manifest.json
     await generateManifest(components, kenticoOutputPath, brand);
 
@@ -93,6 +97,7 @@ async function buildKentico() {
     process.exit(1);
   }
 }
+
 
 /**
  * Generate manifest.json with component registry and metadata
