@@ -8,6 +8,7 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { reorganizeKenticoOutput } from './reorganize-kentico-output.js';
+import { getBrandConfig, getAvailableBrands, getBrandComponents } from '../brands.config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,22 +16,24 @@ const __dirname = path.dirname(__filename);
 // Parse command line arguments
 const args = process.argv.slice(2);
 const brandArg = args.find(arg => arg.startsWith('--brand='));
-const brand = brandArg ? brandArg.split('=')[1] : 'energia';
+const brandId = brandArg ? brandArg.split('=')[1] : 'energia';
 
 // Validate brand
-if (!['energia', 'powerni'].includes(brand)) {
-  console.error(`❌ Invalid brand: ${brand}. Must be 'energia' or 'powerni'`);
+const availableBrands = getAvailableBrands();
+if (!availableBrands.includes(brandId)) {
+  console.error(`❌ Invalid brand: ${brandId}. Available brands: ${availableBrands.join(', ')}`);
   process.exit(1);
 }
 
-// Get Kentico output path from environment
-const kenticoOutputPath =
-  process.env.KENTICO_OUTPUT_PATH ||
-  path.resolve(__dirname, '../dist/kentico');
+// Get brand configuration
+const brandConfig = getBrandConfig(brandId);
+const kenticoOutputPath = path.resolve(__dirname, '..', brandConfig.outputPath);
 
 console.log('\n🚀 Starting Kentico build...');
-console.log(`📦 Brand: ${brand}`);
-console.log(`📁 Output: ${kenticoOutputPath}\n`);
+console.log(`📦 Brand: ${brandConfig.name}`);
+console.log(`🎨 Primary Color: ${brandConfig.colors.primary}`);
+console.log(`📁 Output: ${kenticoOutputPath}`);
+console.log(`📦 Components: ${getBrandComponents(brandId).length} components\n`);
 
 // Auto-discover components
 function discoverComponents() {
@@ -67,7 +70,7 @@ async function buildKentico() {
     }
 
     // Set environment variables for the build
-    process.env.BRAND = brand;
+    process.env.BRAND = brandId;
     process.env.KENTICO_OUTPUT_PATH = kenticoOutputPath;
 
     // Build using vite.kentico.config.ts
@@ -83,10 +86,10 @@ async function buildKentico() {
     console.log('\n✅ Vite build complete!');
 
     // Reorganize files into component folders (move CSS, create HTML templates)
-    reorganizeKenticoOutput(kenticoOutputPath);
+    reorganizeKenticoOutput(kenticoOutputPath, brandId);
 
     // Generate manifest.json
-    await generateManifest(components, kenticoOutputPath, brand);
+    await generateManifest(components, kenticoOutputPath, brandId);
 
     // Calculate and display file sizes
     await displayFileSizes(kenticoOutputPath);

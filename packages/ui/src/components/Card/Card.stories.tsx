@@ -180,6 +180,10 @@ export const WithChildren: Story = {
 
 // Card Grid
 export const CardGrid: Story = {
+  args: {
+    image: 'https://placehold.co/600x400',
+  },
+
   render: () => (
     <div
       style={{
@@ -214,6 +218,7 @@ export const CardGrid: Story = {
       />
     </div>
   ),
+
   parameters: {
     layout: 'padded',
   },
@@ -230,11 +235,7 @@ export const CardVariations: Story = {
         body="Card with image"
       />
       <Card body="Borderless card" bordered={false} />
-      <Card
-        header="Clickable"
-        body="Hover to see effect"
-        href="#"
-      />
+      <Card header="Clickable" body="Hover to see effect" href="#" />
     </div>
   ),
 };
@@ -243,11 +244,7 @@ export const CardVariations: Story = {
 export const BrandComparison: Story = {
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
-      <Card
-        header="Default Theme"
-        body="Uses Bootstrap default colors"
-        footer="Default"
-      />
+      <Card header="Default Theme" body="Uses Bootstrap default colors" footer="Default" />
       <Card
         brand="energia"
         header="Energia Theme"
@@ -317,9 +314,7 @@ export const PricingCards: Story = {
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
       <Card textAlign="center">
         <h3>Basic</h3>
-        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0' }}>
-          €9.99
-        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0' }}>€9.99</div>
         <p>Perfect for individuals</p>
         <ul style={{ textAlign: 'left', margin: '1rem 0' }}>
           <li>1 User</li>
@@ -330,9 +325,7 @@ export const PricingCards: Story = {
       </Card>
       <Card textAlign="center" brand="energia">
         <h3>Pro</h3>
-        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0' }}>
-          €19.99
-        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0' }}>€19.99</div>
         <p>Great for small teams</p>
         <ul style={{ textAlign: 'left', margin: '1rem 0' }}>
           <li>5 Users</li>
@@ -343,9 +336,7 @@ export const PricingCards: Story = {
       </Card>
       <Card textAlign="center">
         <h3>Enterprise</h3>
-        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0' }}>
-          Custom
-        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0' }}>Custom</div>
         <p>For large organizations</p>
         <ul style={{ textAlign: 'left', margin: '1rem 0' }}>
           <li>Unlimited Users</li>

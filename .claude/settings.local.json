@@ -36,7 +36,17 @@
       "Bash(node -e:*)",
       "Bash(node run-reorganize.js:*)",
       "Bash(tree:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(npx vite build:*)",
+      "Bash(cmd //c \"set KENTICO_OUTPUT_PATH=../../Energia.ie/Energia/wwwroot/dist/powerni && set BRAND=powerni && npx vite build --config vite.kentico.config.ts\")",
+      "Bash(cmd //c \"set KENTICO_OUTPUT_PATH=../../Energia.ie/Energia/wwwroot/dist/powerni&& set BRAND=powerni&& npx vite build --config vite.kentico.config.ts\")",
+      "Bash(node run-reorganize-powerni.js:*)",
+      "Bash(cmd //c \"set BRAND=energia&& npx vite build --config vite.kentico.config.ts\")",
+      "Bash(cmd //c \"set BRAND=powerni&& npx vite build --config vite.kentico.config.ts\")",
+      "Bash(cmd //c \"set KENTICO_OUTPUT_PATH=../../PowerNI.ie/PowerNI/wwwroot/dist&& set BRAND=powerni&& npx vite build --config vite.kentico.config.ts\")",
+      "Bash(cmd //c \"set KENTICO_OUTPUT_PATH=../../Energia.ie/Energia/wwwroot/dist&& set BRAND=energia&& npx vite build --config vite.kentico.config.ts\")",
+      "Bash(npm run build:kentico:all:*)"
     ]
   }
 }

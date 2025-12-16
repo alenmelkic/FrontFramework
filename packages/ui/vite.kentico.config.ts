@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
 
-// Get brand from environment variable
-const brand = process.env.BRAND || 'energia';
+// Get brand from environment variable (trim whitespace)
+const brand = (process.env.BRAND || 'energia').trim();
 
 // Get Kentico output path from environment
 const kenticoOutputPath = process.env.KENTICO_OUTPUT_PATH || path.resolve(__dirname, '../../dist/kentico');

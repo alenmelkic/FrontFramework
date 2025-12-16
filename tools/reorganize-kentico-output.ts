@@ -5,17 +5,13 @@
 
 import fs from 'fs';
 import path from 'path';
+import { getBrandComponents, isInteractiveComponent } from '../brands.config.js';
 
-export function reorganizeKenticoOutput(distPath: string) {
-  console.log('\n📦 Reorganizing component files...');
+export function reorganizeKenticoOutput(distPath: string, brandId: string = 'energia') {
+  console.log(`\n📦 Reorganizing ${brandId} component files...`);
 
-  // Components that have interactive JavaScript functionality
-  const interactiveComponents = ['modal', 'carousel', 'navbar'];
-
-  const components = [
-    'alert', 'button', 'card', 'carousel', 'footer',
-    'forminput', 'formselect', 'hero', 'modal', 'navbar'
-  ];
+  // Get components for this brand from config
+  const components = getBrandComponents(brandId);
 
   for (const component of components) {
     const componentDir = path.join(distPath, 'components', component);
@@ -36,10 +32,10 @@ export function reorganizeKenticoOutput(distPath: string) {
     }
 
     // Check if component has interactive functionality
-    const isInteractive = interactiveComponents.includes(component);
+    const hasInteractivity = isInteractiveComponent(component);
 
     // Delete JS file for non-interactive components
-    if (!isInteractive) {
+    if (!hasInteractivity) {
       const jsFile = path.join(componentDir, `${component}.min.js`);
       if (fs.existsSync(jsFile)) {
         fs.unlinkSync(jsFile);
@@ -48,13 +44,18 @@ export function reorganizeKenticoOutput(distPath: string) {
     }
 
     // Create HTML template file
-    createHTMLTemplate(componentDir, component, isInteractive);
+    createHTMLTemplate(componentDir, component, hasInteractivity, brandId);
   }
 
   console.log('✨ Reorganization complete!\n');
 }
 
-function createHTMLTemplate(componentDir: string, componentName: string, includeJS: boolean = false) {
+function createHTMLTemplate(
+  componentDir: string,
+  componentName: string,
+  includeJS: boolean = false,
+  brandId: string = 'energia'
+) {
   const htmlPath = path.join(componentDir, `${componentName}.html`);
 
   const templates: Record<string, string> = {
